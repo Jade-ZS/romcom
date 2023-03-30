@@ -118,7 +118,9 @@ function createCover(imgSrc, title, descriptor1, descriptor2) {
 
 function makeMyBook(event){
 event.preventDefault()
-  
+
+var newBookCover = createCover(userCover.value, userTitle.value, userDesc1.value, userDesc2.value);
+
   if(!covers.includes(userCover.value)){
      covers.push(userCover.value)
   }
@@ -132,8 +134,12 @@ event.preventDefault()
     descriptors.push(userDesc2.value)
   }
   
+  
   image.src = userCover.value
-  title.innerText = userTitle.value
-  tagline1.innerText = userDesc1.value
-  tagline2.innerText = userDesc2.value
+  title.innerText = userTitle.Value
+  tagline1.innerText = userDesc1.Value
+  tagline2.innerText = userDesc2.Value
+
+  showHomeView();
+  return newBookCover;
 }
