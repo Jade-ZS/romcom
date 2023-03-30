@@ -10,10 +10,16 @@ var saveCoverButton = document.querySelector('.save-cover-button');
 var viewSavedButton = document.querySelector('.view-saved-button');
 var makeNewButton = document.querySelector('.make-new-button');
 
+var makeMyBookButton = document.querySelector('.create-new-book-button')
+
 var homeView = document.querySelector('.home-view');
 var savedView = document.querySelector('.saved-view');
 var formView = document.querySelector('.form-view');
 
+var userCover = document.querySelector('.user-cover')
+var userTitle = document.querySelector('.user-title')
+var userDesc1 = document.querySelector('.user-desc1')
+var userDesc2 = document.querySelector('.user-desc2')
 
 // We've provided a few variables below
 var savedCovers = [
@@ -28,6 +34,9 @@ window.addEventListener('load', showNewCover)
 homeButton.addEventListener('click', showHomeView)
 viewSavedButton.addEventListener('click', showSavedCoversView)
 makeNewButton.addEventListener('click', showFormView)
+
+
+makeMyBookButton.addEventListener('click',makeMyBook)
 
 // Create your event handlers and other functions here 👇
 function getRandomIndex(array) {
@@ -105,4 +114,26 @@ function createCover(imgSrc, title, descriptor1, descriptor2) {
     tagline2: descriptor2
   }
   return cover
+}
+
+function makeMyBook(event){
+event.preventDefault()
+  
+  if(!covers.includes(userCover.value)){
+     covers.push(userCover.value)
+  }
+  if(!titles.includes(userTitle.value)){
+    titles.push(userTitle.value)
+  }
+  if(!descriptors.includes(userDesc1.value)){
+    descriptors.push(userDesc1.value)
+  }
+  if(!descriptors.includes(userDesc2.value)){
+    descriptors.push(userDesc2.value)
+  }
+  
+  image.src = userCover.value
+  title.innerText = userTitle.value
+  tagline1.innerText = userDesc1.value
+  tagline2.innerText = userDesc2.value
 }
