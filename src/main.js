@@ -1,9 +1,19 @@
 // Create variables targetting the relevant DOM elements here 👇
-var image = document.querySelector('.cover-image')
-var title = document.querySelector('.cover-title')
-var tagline1 = document.querySelector('.tagline-1')
-var tagline2 = document.querySelector('.tagline-2')
-var randomCoverButton = document.querySelector('.random-cover-button')
+var image = document.querySelector('.cover-image');
+var title = document.querySelector('.cover-title');
+var tagline1 = document.querySelector('.tagline-1');
+var tagline2 = document.querySelector('.tagline-2');
+
+var randomCoverButton = document.querySelector('.random-cover-button');
+var homeButton = document.querySelector('.home-button');
+var saveCoverButton = document.querySelector('.save-cover-button');
+var viewSavedButton = document.querySelector('.view-saved-button');
+var makeNewButton = document.querySelector('.make-new-button');
+
+var homeView = document.querySelector('.home-view');
+var savedView = document.querySelector('.saved-view');
+var formView = document.querySelector('.form-view');
+
 
 // We've provided a few variables below
 var savedCovers = [
@@ -15,10 +25,11 @@ var currentCover;
 randomCoverButton.addEventListener('click', showNewCover)
 window.addEventListener('load', showNewCover)
 
+homeButton.addEventListener('click', showHomeView)
+viewSavedButton.addEventListener('click', showSavedCoversView)
+makeNewButton.addEventListener('click', showFormView)
+
 // Create your event handlers and other functions here 👇
-
-
-// We've provided two functions to get you started
 function getRandomIndex(array) {
 
   return Math.floor(Math.random() * array.length);
@@ -30,6 +41,59 @@ function showNewCover(){
   tagline2.innerText = descriptors[getRandomIndex(descriptors)]
   image.src = covers[getRandomIndex(covers)]
 }
+
+
+function showHomeView() {
+// show: show-new-random-cover Button; save-cover Button; make-your-own-cover Button; home view
+homeView.classList.remove('hidden');
+randomCoverButton.classList.remove('hidden');
+saveCoverButton.classList.remove('hidden');
+viewSavedButton.classList.remove('hidden');
+makeNewButton.classList.remove('hidden');
+
+// hide: home button; form-view; saved-cover-view
+homeButton.classList.add('hidden');
+formView.classList.add('hidden');
+savedView.classList.add('hidden');
+}
+
+
+function showFormView() {
+// show: 
+//home Button; 
+homeButton.classList.remove('hidden');
+//form-view
+formView.classList.remove('hidden');
+
+// hide: 
+//show-new-random-cover Button;  
+randomCoverButton.classList.add('hidden');
+//save-cover Button;
+saveCoverButton.classList.add('hidden');
+//saved-cover-view
+savedView.classList.add('hidden');
+//home-view; 
+homeView.classList.add('hidden');
+
+
+
+}
+
+function showSavedCoversView() {
+// show: home Button; view-saved-covers Button; make-your-own Button; saved-cover view
+homeButton.classList.remove('hidden');
+saveCoverButton.classList.remove('hidden');
+randomCoverButton.classList.remove('hidden');
+savedView.classList.remove('hidden');
+
+// hide: home view; form view; show-new-random-cover Button; save-cover Button
+homeView.classList.add('hidden');
+formView.classList.add('hidden');
+randomCoverButton.classList.add('hidden');
+saveCoverButton.classList.add('hidden');
+}
+
+
 //image will need diff method coverImage.source
 // assign new values to image,title,tag line 1, tag line 2 use innertext
 function createCover(imgSrc, title, descriptor1, descriptor2) {
