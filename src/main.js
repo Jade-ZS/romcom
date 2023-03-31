@@ -152,7 +152,15 @@ currentCover = createCover(userCover.value, userTitle.value, userDesc1.value, us
 }
 
 function saveCover(){
+  
+    var ifOverlap = savedCovers.some(Element => Element.title === currentCover.title && Element.imgSrc === currentCover.imgSrc && Element.tagline1 === currentCover.tagline1 && Element.tagline2 === currentCover.tagline2);
+    if (!ifOverlap) {
+      savedCovers.push(currentCover);
+    }
+    
+  }
 
-  savedCovers.push(currentCover);
-}
+
+ 
+
 
