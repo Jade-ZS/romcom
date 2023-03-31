@@ -34,9 +34,8 @@ window.addEventListener('load', showNewCover)
 homeButton.addEventListener('click', showHomeView)
 viewSavedButton.addEventListener('click', showSavedCoversView)
 makeNewButton.addEventListener('click', showFormView)
-
-
 makeMyBookButton.addEventListener('click',makeMyBook)
+saveCoverButton.addEventListener('click', saveCover)
 
 // Create your event handlers and other functions here 👇
 function getRandomIndex(array) {
@@ -45,10 +44,17 @@ function getRandomIndex(array) {
 }
 
 function showNewCover(){
-  title.innerText = titles[getRandomIndex(titles)]
-  tagline1.innerText = descriptors[getRandomIndex(descriptors)]
-  tagline2.innerText = descriptors[getRandomIndex(descriptors)]
-  image.src = covers[getRandomIndex(covers)]
+  var randomTitle = titles[getRandomIndex(titles)];
+  var randomDesc1 = descriptors[getRandomIndex(descriptors)];
+  var randomDesc2 = descriptors[getRandomIndex(descriptors)];
+  var randomCover = covers[getRandomIndex(covers)];
+
+  currentCover = createCover(randomCover, randomTitle, randomDesc1, randomDesc2);
+
+  title.innerText = titles[getRandomIndex(titles)];
+  tagline1.innerText = descriptors[getRandomIndex(descriptors)];
+  tagline2.innerText = descriptors[getRandomIndex(descriptors)];
+  image.src = covers[getRandomIndex(covers)];
 }
 
 
@@ -119,7 +125,7 @@ function createCover(imgSrc, title, descriptor1, descriptor2) {
 function makeMyBook(event){
 event.preventDefault()
 
-var newBookCover = createCover(userCover.value, userTitle.value, userDesc1.value, userDesc2.value);
+currentCover = createCover(userCover.value, userTitle.value, userDesc1.value, userDesc2.value);
 
   if(!covers.includes(userCover.value)){
      covers.push(userCover.value)
@@ -141,5 +147,12 @@ var newBookCover = createCover(userCover.value, userTitle.value, userDesc1.value
   tagline2.innerText = userDesc2.Value
 
   showHomeView();
+
   return newBookCover;
 }
+
+function saveCover(){
+
+  savedCovers.push(currentCover);
+}
+
