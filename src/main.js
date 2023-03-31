@@ -51,10 +51,10 @@ function showNewCover(){
 
   currentCover = createCover(randomCover, randomTitle, randomDesc1, randomDesc2);
 
-  title.innerText = titles[getRandomIndex(titles)];
-  tagline1.innerText = descriptors[getRandomIndex(descriptors)];
-  tagline2.innerText = descriptors[getRandomIndex(descriptors)];
-  image.src = covers[getRandomIndex(covers)];
+  title.innerText = randomTitle;
+  tagline1.innerText = randomDesc1;
+  tagline2.innerText = randomDesc2;
+  image.src = randomCover;
 }
 
 
@@ -157,6 +157,7 @@ function saveCover(){
     if (!ifOverlap) {
       savedCovers.push(currentCover);
     }
+    console.log(savedCovers);
     
   }
 
