@@ -4,6 +4,7 @@ var image = document.querySelector('.cover-image');
 var title = document.querySelector('.cover-title');
 var tagline1 = document.querySelector('.tagline-1');
 var tagline2 = document.querySelector('.tagline-2');
+var miniCovers = document.querySelectorAll('.mini-cover');
 
 /** button variabels */
 var randomCoverButton = document.querySelector('.random-cover-button');
@@ -28,7 +29,7 @@ var userDesc2 = document.querySelector('.user-desc2');
 var savedSection = document.querySelector('.saved-covers-section');
 
 var savedCovers = [
-  createCover('http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg', 'Sunsets and Sorrows', 'sunsets', 'sorrows');
+  createCover('http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg', 'Sunsets and Sorrows', 'sunsets', 'sorrows')
 ];
 var currentCover;
 
@@ -40,6 +41,7 @@ makeNewButton.addEventListener('click', showFormView);
 makeMyBookButton.addEventListener('click',makeMyBook);
 saveCoverButton.addEventListener('click', saveCover);
 viewSavedButton.addEventListener('click', renderSavedCovers);
+
 
 // event handlers and other functions 
 function getRandomIndex(array) {
@@ -139,7 +141,8 @@ function saveCover() {
 function createCoverElement(coverInfo) {
   var coverEl = document.createElement('section');
   coverEl.classList.add('mini-cover');
- 
+  coverEl.id = coverInfo.id; 
+
   var img = document.createElement('img');
   img.src = coverInfo.coverImg;
   img.classList.add('cover-image');
@@ -163,16 +166,30 @@ function createCoverElement(coverInfo) {
   overlay.classList.add('overlay');
 
   coverEl.append(img, title, tagline, priceTag, overlay);
+  coverEl.addEventListener('dblclick', deleteCover);
   return coverEl;
 }
 
+function removeAllChildNodes(parent) {
+  while (parent.firstChild) {
+      parent.removeChild(parent.firstChild);
+  }
+}
+
 function renderSavedCovers() {
-  savedCovers.forEach(function(coverInfo) {
-    var element = createCoverElement(coverInfo);
+  removeAllChildNodes(savedSection);
+
+  for (var i = 0; i < savedCovers.length; i++) {
+    var element = createCoverElement(savedCovers[i]);
     savedSection.appendChild(element);
-  })
+  }
 
   showSavedCoversView();
+}
+
+function deleteCover(event) {
+  event.target.parentNode.remove();
+  savedCovers.splice(event.target.id, 1);
 }
 
  
