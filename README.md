@@ -8,6 +8,8 @@
 
 We created an application which allows you to generate, save and create your own romantic novel covers. This app makes it easy to keep track of your favorite covers and allows you to express your creativity and execute your own cover ideas, while drawing inspiration from previously generated covers.
 
+Project specifications can be found [here](https://frontend.turing.edu/projects/module-1/romcom-pair-v2.html)
+
 
 ### Installation Instructions:
 [//]: <> (What steps does a person have to take to get your app cloned down and running?)
