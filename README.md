@@ -38,12 +38,10 @@ We've created this application while in the midst of the beginning stages of the
 
 ### Contributors:
 [//]: <> (Who worked on this application? Link to their GitHubs.)
-Jade Shi
-https://github.com/Jade-ZS
+[Jade Shi](https://github.com/Jade-ZS)
 
 
-Natalie Baker
-https://github.com/Nathelene
+[Natalie Baker](https://github.com/Nathelene)
 
 
 ### Learning Goals:
