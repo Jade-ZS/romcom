@@ -16,7 +16,7 @@ Project specifications can be found [here](https://frontend.turing.edu/projects/
 
 
 
-
+Visit [this website]( https://jade-zs.github.io/romcom/) or follow the following instructions:
 1. Copy repository SSH link.
 2. Run `git clone`  followed by the SSH link in your terminal.
 3. Move into the romcom directory using the `cd` command in your terminal.
