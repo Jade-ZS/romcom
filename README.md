@@ -26,10 +26,12 @@ Visit [this website]( https://jade-zs.github.io/romcom/) or follow the following
 ### Preview of App:
 [//]: <> (Provide ONE gif or screenshot of your application - choose the "coolest" piece of functionality to show off.)
  This 'Make Your Own Cover' component will allow you to create your own romantic novel cover! Fill out the given form and your self made cover will be generated with the click of the 'make my cover' button. Once your cover is generated, you will be given the option to save it to your 'saved cover' collection!
+ 
+![create your own book cover](https://user-images.githubusercontent.com/123802263/234991577-9b473b0f-6186-4c55-b298-58b0b0c0783c.gif)
 
+You can also generate random covers by clicking the "Show New Random Cover" button, save covers by clicking the "Save Cover" button, and delete covers by double click the cover you want to delete!
 
-<img width="806" alt="Screenshot 2023-03-31 at 5 56 56 PM" src="https://user-images.githubusercontent.com/123802263/229240368-4797b80d-b793-4a61-b714-eb88884bc1b7.png">
-
+![generate random cover, save covers, and delete covers](https://user-images.githubusercontent.com/123802263/234991800-b479368e-d330-4885-b85a-9634b6d4fa77.gif)
 
 ### Context:
 [//]: <> (Give some context for the project here. How long did you have to work on it? How far into the Turing program are you?)
