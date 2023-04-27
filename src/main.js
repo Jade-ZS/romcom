@@ -132,7 +132,14 @@ function makeMyBook(event) {
 }
 
 function saveCover() {
-  var ifOverlap = savedCovers.some(element => element.title === currentCover.title && element.imgSrc === currentCover.imgSrc && element.tagline1 === currentCover.tagline1 && element.tagline2 === currentCover.tagline2);
+  var ifOverlap; 
+  for (var i = 0; i < savedCovers.length; i++) {
+    if (savedCovers[i].title === currentCover.title && savedCovers[i].coverImg === currentCover.coverImg && savedCovers[i].tagline1 === currentCover.tagline1 && savedCovers[i].tagline2 === currentCover.tagline2) {
+      ifOverlap = true;
+      break;
+    } 
+  }
+
   if (!ifOverlap) {
     savedCovers.push(currentCover);
   }
@@ -188,8 +195,13 @@ function renderSavedCovers() {
 }
 
 function deleteCover(event) {
-  event.target.parentNode.remove();
-  savedCovers.splice(event.target.id, 1);
+  event.currentTarget.remove();
+ 
+  for (var i = 0; i < savedCovers.length; i++) {
+    if (savedCovers[i].id === parseInt(event.currentTarget.id)) {
+      savedCovers.splice(i, 1);
+    }
+  }
 }
 
  
