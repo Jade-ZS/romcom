@@ -123,10 +123,10 @@ function makeMyBook(event) {
     descriptors.push(userDesc2.value);
   }
     
-  image.src = userCover.value;
-  title.innerText = userTitle.Value;
-  tagline1.innerText = userDesc1.Value;
-  tagline2.innerText = userDesc2.Value;
+  image.src = currentCover.coverImg;
+  title.innerText = currentCover.title;
+  tagline1.innerText = currentCover.tagline1;
+  tagline2.innerText = currentCover.tagline2;
 
   showHomeView();
 }
